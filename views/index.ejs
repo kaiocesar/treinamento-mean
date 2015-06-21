@@ -3,12 +3,50 @@
 <head>
 	<meta charset="utf-8" />
 	<title>MEAN STACK - treinamento Alura</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
 <body ng-controller="MusicController">
-	<h1>Bem vindo ao treinamento de MEAN STACK da plataforma Alura</h1>
 
-	<pre>{{musics}}</pre>
+	<div class="container">
+		<h1>Bem vindo ao treinamento de MEAN STACK da plataforma Alura</h1>
+		
+		<br/>
+		<form class="form-inline" ng-submit="adicionarMusic()">
+			<div class="form-group">
+				<label>Name:</label>
+				<input class="form-control" type="text" name="name" id="name" ng-model="music.name"></input>
+			</div>
+			<div class="form-group">
+				<label>Author:</label>
+				<input class="form-control" type="text" name="author" id="author" ng-model="music.author"></input>
+			</div>
+			<div class="form-group">
+				<label>Year:</label>
+				<input class="form-control" type="text" name="year" id="year" ng-model="music.year"></input>
+			</div>
+			<div class="form-group">
+				<button class="btn btn-success btn-sm" type="submit">Add</button>
+			</div>
+		</form>
+		<br/>
 
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Author</th>
+					<th>Year</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="music in musics">
+					<td>{{ music.name }}</td>
+					<td>{{ music.author }}</td>
+					<td>{{ music.year }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div><!-- .container -->
 	<script type="text/javascript" src="https://code.angularjs.org/1.2.3/angular.js"></script>
 	<script type="text/javascript" src="/js/MusicController.js"></script> 
 </body>
