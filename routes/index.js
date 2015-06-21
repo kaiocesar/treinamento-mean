@@ -10,3 +10,9 @@ exports.lista = function(req, res) {
 		year: 1995 
 	});
 }
+
+exports.gravar = function(req, res) {
+	var music = req.body;
+	console.log(music);
+	res.send('Music ' + music.name + ' recebido no servidor');
+}
