@@ -4,6 +4,7 @@
 	<meta charset="utf-8" />
 	<title>MEAN STACK - treinamento Alura</title>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/js/css/alertify.css" />
 </head>
 <body ng-controller="MusicController">
 
@@ -36,6 +37,7 @@
 					<th>Name</th>
 					<th>Author</th>
 					<th>Year</th>
+					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -43,11 +45,14 @@
 					<td>{{ music.name }}</td>
 					<td>{{ music.author }}</td>
 					<td>{{ music.year }}</td>
+					<td><button class="btn btn-warning btn-xs" ng-click="deleteMusic(music)"><span class="glyphicon glyphicon-trash"></span></button></td>
 				</tr>
 			</tbody>
 		</table>
 	</div><!-- .container -->
+	<script type="text/javascript" src="/js/alertify.min.js"></script>
 	<script type="text/javascript" src="https://code.angularjs.org/1.2.3/angular.js"></script>
 	<script type="text/javascript" src="/js/MusicController.js"></script> 
+
 </body>
 </html>

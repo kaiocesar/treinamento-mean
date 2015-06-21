@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 app.get('/', routes.index); 
 app.get('/lista', routes.lista);
 app.post('/gravar', routes.gravar);
+app.delete('/music/:id', routes.deleta);
 
 app.set('port', process.env.PORT || 3000);
 app.listen(app.get('port'), function(){

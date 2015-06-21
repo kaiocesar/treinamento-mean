@@ -7,7 +7,7 @@ exports.index = function(req, res) {
 
 exports.lista = function(req, res) {
 	
-	Music.find({}, function(erro, musics){
+	Music.find({}, function(error, musics){
 		res.json({ musics: musics });	
 	});
 	
@@ -21,10 +21,26 @@ exports.gravar = function(req, res) {
 		year: music_post.year
 	});
 
-	music.save(function(erro, music){
-		if (erro) {
-			console.log("Error: "+ erro);
+	music.save(function(error, music){
+		if (error) {
+			console.log("Error: "+ error);
 		}
 		res.send(music);
 	});
+}
+
+
+exports.deleta = function(req, res) {
+	var id = req.params.id;
+
+	Music.findByIdAndRemove(id, function(error, music){
+		var response = true;
+
+		if (error) {
+			response = false;
+		}
+
+		res.json({status: response});
+
+	});	
 }

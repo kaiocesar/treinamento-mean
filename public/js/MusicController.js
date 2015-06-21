@@ -22,5 +22,20 @@ function MusicController($http, $scope) {
 		});	
 	}
 
+
+	$scope.deleteMusic = function(music){
+		$http.delete('/music/' + music._id)
+		.success(function(data){
+			var index = $scope.musics.indexOf(music);
+			$scope.musics.splice(index, 1);
+
+			if (data.status == true) {
+				alertify.notify('Delete succefully', 'succeess', 5, function() { console.log('dismissed'); });
+			} else {
+				alert("Error delete");
+			}
+		});
+	}
+
 	
 }
