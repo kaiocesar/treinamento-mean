@@ -30,7 +30,7 @@ function MusicController($http, $scope) {
 			$scope.musics.splice(index, 1);
 
 			if (data.status == true) {
-				alertify.notify('Delete succefully', 'succeess', 5, function() { console.log('dismissed'); });
+				alertify.notify('Delete succefully', 'success', 3, function() { console.log('dismissed'); });
 			} else {
 				alert("Error delete");
 			}
