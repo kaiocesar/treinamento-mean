@@ -15,8 +15,6 @@ exports.lista = function(req, res) {
 
 exports.gravar = function(req, res) {
 	var music_post = req.body;
-	console.log(music);
-
 	var music = new Music({
 		name:  music_post.name,
 		author: music_post.author,
@@ -25,7 +23,7 @@ exports.gravar = function(req, res) {
 
 	music.save(function(erro, music){
 		if (erro) {
-			console.log(error);
+			console.log("Error: "+ erro);
 		}
 		res.send('Music ' + music.name + ' recebido no servidor');
 	});
