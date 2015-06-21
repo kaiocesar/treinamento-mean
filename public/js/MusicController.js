@@ -17,6 +17,8 @@ function MusicController($http, $scope) {
 		$http.post('/gravar', $scope.music)
 		.success(function(data){
 			console.log(data);
+			$scope.musics.push(data);
+			$scope.music = new Music();
 		});	
 	}
 

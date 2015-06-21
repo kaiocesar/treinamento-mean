@@ -25,6 +25,6 @@ exports.gravar = function(req, res) {
 		if (erro) {
 			console.log("Error: "+ erro);
 		}
-		res.send('Music ' + music.name + ' recebido no servidor');
+		res.send(music);
 	});
 }
