@@ -13,13 +13,25 @@ function MusicController($http, $scope) {
 
 	$scope.music = new Music();
 
-	$scope.adicionarMusic = function() {
+	var insertMusic = function() {
 		$http.post('/gravar', $scope.music)
 		.success(function(data){
 			console.log(data);
 			$scope.musics.push(data);
 			$scope.music = new Music();
 		});	
+	}
+
+	var updateMusic = function() {
+		$http.put('/music', $scope.music)
+		.success(function(data){
+			$scope.music = new Music();
+			if (data.status == true) {
+				alertify.notify('Update succefully', 'success', 3, function() { console.log('dismissed'); });
+			} else {
+				alertify.notify('Error update', 'success', 3, function() { console.log('dismissed'); });
+			}
+		});
 	}
 
 
@@ -37,5 +49,18 @@ function MusicController($http, $scope) {
 		});
 	}
 
+
+	$scope.editMusic = function(music) {
+		$scope.music = music;
+	}
 	
+
+	$scope.sendMusic = function() {
+		if ($scope.music._id) {
+			updateMusic();
+		} else {
+			insertMusic();
+		}
+	}
+
 }

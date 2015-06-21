@@ -44,3 +44,19 @@ exports.deleta = function(req, res) {
 
 	});	
 }
+
+
+exports.atualizar = function(req, res) {
+	var music = req.body;
+	var id = music._id;
+
+	delete req.body._id;
+
+	Music.findByIdAndUpdate(id, music, function(error, music){
+		var status = true;
+		if (error) {
+			status = false;
+		}
+		res.json({status: status});
+	})
+}
