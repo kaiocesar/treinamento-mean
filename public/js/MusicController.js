@@ -1,5 +1,6 @@
 
-function MusicController($http, $scope) {
+angular.module('catalogo')
+.controller('MusicController', function($http, $scope) {
 	$http.get('/lista').success(function(data){
 		$scope.musics = data.musics;
 	});
@@ -63,4 +64,4 @@ function MusicController($http, $scope) {
 		}
 	}
 
-}
+});
